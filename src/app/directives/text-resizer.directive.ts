@@ -57,24 +57,34 @@ export class TextResizerDirective implements OnInit, OnDestroy {
     if (!this.ctx) return
 
     const element = this.el.nativeElement
-    const computedStyle = window.getComputedStyle(element)
-
-    const paddingLeft = parseFloat(computedStyle.paddingLeft)
-    const paddingRight = parseFloat(computedStyle.paddingRight) // Get right padding
-
-    const containerWidth = element.offsetWidth - paddingLeft - paddingRight // Subtract both paddings
     const text = element.textContent || ''
 
+    const computedStyle = window.getComputedStyle(element)
+
     const fontFamily = computedStyle.fontFamily
+    const letterSpacing = computedStyle.letterSpacing
+    const paddingLeft = parseFloat(computedStyle.paddingLeft)
+    const paddingRight = parseFloat(computedStyle.paddingRight)
+
+    const containerWidth = element.offsetWidth - paddingLeft - paddingRight
 
     const currentSize = parseFloat(computedStyle.fontSize)
     let minSize = this.minFontSize
     let maxSize = Math.max(currentSize * 2, this.maxFontSize)
+    const tolerance = 0.2
+    let cachedWidth: number | undefined = undefined
+    let cachedFontSize: number | undefined = undefined
 
-    while (maxSize - minSize > 0.5) {
+    while (maxSize - minSize > tolerance) {
       const fontSize = (minSize + maxSize) / 2
-      this.ctx.font = `${fontSize}px ${fontFamily}`
-      const textWidth = this.ctx.measureText(text).width
+
+      if (fontSize !== cachedFontSize) {
+        this.ctx.font = `${fontSize}px ${fontFamily}`
+        this.ctx.letterSpacing = letterSpacing
+        cachedWidth = this.ctx.measureText(text).width
+        cachedFontSize = fontSize
+      }
+      const textWidth = cachedWidth!
 
       if (textWidth <= containerWidth) {
         minSize = fontSize
@@ -83,6 +93,7 @@ export class TextResizerDirective implements OnInit, OnDestroy {
       }
     }
 
-    this.renderer.setStyle(element, 'font-size', `${minSize}px`)
+    const finalSize = Math.round(minSize)
+    this.renderer.setStyle(element, 'font-size', `${finalSize}px`)
   }
 }
