@@ -1,7 +1,9 @@
 # Description & requirements
 
+Frontend Code Challenge
+
 My objective in this assignment is to create a countdown app built using this boilerplate (+ any
-other tools of your choice) that follows the design specifications provided in this Figma file. The
+other tools of my choice) that follows the design specifications provided in this Figma file. The
 app should work in portrait as well as in landscape mode while the text displayed on the screen
 should always fill the whole width of the screen.
 
