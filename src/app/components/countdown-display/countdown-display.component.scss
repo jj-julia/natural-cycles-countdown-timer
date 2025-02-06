@@ -1,0 +1,44 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.countdown-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.countdown-title,
+.countdown-text {
+  font-family: 'Open Sauce One', sans-serif;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.countdown-title {
+  color: #72035d;
+  font-weight: 800;
+  font-size: 3.5rem;
+  margin-bottom: 0.5em;
+}
+
+.countdown-text {
+  font-weight: 400;
+  font-size: 2.5rem;
+  margin-bottom: 1em;
+}
+
+@media (orientation: landscape) {
+  .countdown-container {
+    gap: 3rem;
+  }
+
+  .countdown-title {
+    font-size: 2.5rem;
+  }
+
+  .countdown-text {
+    font-size: 2rem;
+  }
+}

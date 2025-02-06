@@ -1,0 +1,44 @@
+<form [formGroup]="eventForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Event Name</mat-label>
+    <input
+      matInput
+      formControlName="eventName"
+      placeholder="Enter event name"
+      aria-label="Event name input"
+    />
+    <mat-error
+      *ngIf="
+        eventForm.get('eventName')?.invalid &&
+        (eventForm.get('eventName')?.dirty || eventForm.get('eventName')?.touched)
+      "
+    >
+      <span *ngIf="eventForm.get('eventName')?.errors?.['required']">Event name is required</span>
+      <span *ngIf="eventForm.get('eventName')?.errors?.['minlength']"
+        >Event name must be at least 3 characters</span
+      >
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>End Date</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      formControlName="endDate"
+      (click)="picker.open()"
+      readonly
+      aria-label="End date input"
+    />
+
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error
+      *ngIf="
+        eventForm.get('endDate')?.invalid &&
+        (eventForm.get('endDate')?.dirty || eventForm.get('endDate')?.touched)
+      "
+    >
+      End date is required
+    </mat-error>
+  </mat-form-field>
+</form>
