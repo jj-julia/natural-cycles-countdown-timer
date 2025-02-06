@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { TextResizerDirective } from '../../directives/text-resizer.directive'
 import { CountdownService } from '../../services/countdown.service'
 import { Subscription } from 'rxjs'
 import { EventService } from '../../services/event.service'
@@ -7,7 +8,7 @@ import { EventService } from '../../services/event.service'
 @Component({
   selector: 'app-countdown-display',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TextResizerDirective],
   templateUrl: './countdown-display.component.html',
   styleUrl: './countdown-display.component.scss',
 })

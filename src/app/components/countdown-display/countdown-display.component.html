@@ -1,7 +1,10 @@
 <div *ngIf="eventName" class="countdown-container">
-  <h2 class="countdown-title">Time to {{ eventName }}</h2>
-  <p class="countdown-text">
+  <h2 class="countdown-title" appTextResizer>Time to {{ eventName }}</h2>
+  <p class="countdown-text" appTextResizer>
     {{ countdown.days }} days, {{ countdown.hours }} h, {{ countdown.minutes }} m,
     {{ countdown.seconds }} s
   </p>
+</div>
+<div *ngIf="!eventName" class="countdown-container">
+  <h2 class="countdown-title" appTextResizer>Add a name to start the countdown</h2>
 </div>
