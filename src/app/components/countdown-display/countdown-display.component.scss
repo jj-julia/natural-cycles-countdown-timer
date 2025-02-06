@@ -4,9 +4,9 @@
 }
 
 .countdown-container {
-  width: 100%;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .countdown-title,
@@ -14,19 +14,22 @@
   font-family: 'Open Sauce One', sans-serif;
   white-space: nowrap;
   min-width: 0;
+  flex-shrink: 1;
+  text-align: center;
 }
 
 .countdown-title {
   color: #72035d;
   font-weight: 800;
   font-size: 3.5rem;
-  margin-bottom: 0.5em;
+  margin: 0 0 0.5em 0;
+  letter-spacing: normal;
 }
 
 .countdown-text {
   font-weight: 400;
   font-size: 2.5rem;
-  margin-bottom: 1em;
+  margin: 0 0 1em 0;
 }
 
 @media (orientation: landscape) {

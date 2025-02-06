@@ -41,7 +41,6 @@ export class EventInputComponent implements OnInit {
     this.loadSavedEvent()
 
     this.eventForm.valueChanges.subscribe(() => {
-      debugger
       this.onEventDetailsChange()
     })
   }
