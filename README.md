@@ -44,7 +44,7 @@ To test the requirements try:
 
    ```bash
    git clone https://github.com/jj-julia/natural-cycles-countdown-timer.git
-   cdnatural-cycles-countdown-timer
+   cd natural-cycles-countdown-timer
    ```
 
 2. Install the dependencies:
