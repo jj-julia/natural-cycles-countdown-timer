@@ -1,6 +1,6 @@
 <form [formGroup]="eventForm">
   <mat-form-field appearance="outline">
-    <mat-label>Event Name</mat-label>
+    <mat-label>Title</mat-label>
     <input
       matInput
       formControlName="eventName"
@@ -21,7 +21,7 @@
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>End Date</mat-label>
+    <mat-label>Date</mat-label>
     <input
       matInput
       [matDatepicker]="picker"
