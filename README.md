@@ -13,7 +13,7 @@ remaining to your specified end date in the following format: Days, Hours(h), Mi
 (e.g., 3 days, 15 h, 20 m, 5 s). To make sure the text always covers the entire screen width, it
 should resize whenever necessary to achieve this objective.
 
-The purpose of the solution is to “fit” the input text into an element in one line (no line breaks,
+The purpose of the solution is to "fit" the input text into an element in one line (no line breaks,
 filling the whole width) using the maximum possible font-size.
 
 The text fit solution should be reusable and that the event name, as well as the specified end date,
@@ -35,8 +35,8 @@ To test the requirements try:
 
 ### Basic Error Handling
 
-- Entering a date in the past
-- Leaving the input blank
+- Entering a date in the past should not update the timer
+- Leaving the input blank should not update the timer and show an error
 
 ## Setup Instructions
 
@@ -81,36 +81,56 @@ You can view the deployed version of the application at:
 
 ## Suggestions for Improvement
 
-- **Add Unit Tests**:
-  - Add unit tests for all components, services, and directives.
-  - I have set up a few very basic unit tests but I am not satisfied that they are testing the most
-    important functionality of the application. For example, I have not tested the countdown service
-    or the event service.
-- **Resizer Directive**:
-  - Make sure the resizer directive works on all elements, in call kinds of scenarios. To do this, I
-    might do some quick example mapping with the developer as the user to scenarios (e.g. using with
-    a button, a paragraph, a heading, etc., with different libraries (e.g. material) different font
-    sizes, etc.). This would help to make the directive more robust.
-- **Features**:
-  - I have not added a view for what happens when the event is over. This would be the feature I
-    would prioritize above all.
-  - Create a better view for initial state and break out
-  - I would consider allowing the user to add multiple events and display them on the screen. I
-    would also consider allowing the user to edit or delete an event. **CSS and Theming**: -I have
-    not modified the Angular material theme for the input boxes. I haven't revisited angular since
-    they started using system tokens so I am keen to dive into how this works (note: if there was an
-    existing design system used by the team I would consider creating custom components, or
-    employing the component library available to me)
-  - I would also to review my strategy for handling the responsive margins
-- **Optimize Performance**:
-  - Analyze and optimize the performance of the application for better load times.
-- **Implement CI/CD**:
-  - Set up Continuous Integration and Continuous Deployment pipelines for automated testing and
-    deployment.
-- **Add Accessibility Features**:
-  - Add accessibility features to the application.
-- **Consider Naming in the UI**:
-  - Consider renaming the title to something more descriptive.
+### Add Unit Tests
+
+- Add unit tests for all components, services, and directives.
+- I have set up a few very basic unit tests but I am not satisfied that they are testing the most
+  important functionality of the application. For example, I have not tested the countdown service
+  or the event service.
+
+### Better Error Handling for Forms
+
+- Show message when date in the past is picked
+
+### Resizer Directive
+
+- Make sure the resizer directive works on all elements, in all kinds of scenarios. To do this, I
+  might do some quick example mapping with the developer as the user to scenarios (e.g. using with a
+  button, a paragraph, a heading, etc., with different libraries (e.g. material) different font
+  sizes, etc.). This would help to make the directive more robust.
+
+### Features
+
+- I have not added a view for what happens when the event is over. This would be the feature I would
+  prioritize above all.
+- Create a better view for initial state and break out
+- I would consider allowing the user to add multiple events and display them on the screen. I would
+  also consider allowing the user to edit or delete an event.
+
+### CSS and Theming
+
+- I have not modified the Angular material theme for the input boxes. I haven't revisited angular
+  since they started using system tokens so I am keen to dive into how this works (note: if there
+  was an existing design system used by the team I would consider creating custom components, or
+  employing the component library available to me)
+- I would also to review my strategy for handling the responsive margins
+
+### Optimize Performance
+
+- Analyze and optimize the performance of the application for better load times.
+
+### Implement CI/CD
+
+- Set up Continuous Integration and Continuous Deployment pipelines for automated testing and
+  deployment.
+
+### Add Accessibility Features
+
+- Add accessibility features to the application.
+
+### Consider Naming in the UI
+
+- Consider renaming the title to something more descriptive.
 
 ## Further help
 
